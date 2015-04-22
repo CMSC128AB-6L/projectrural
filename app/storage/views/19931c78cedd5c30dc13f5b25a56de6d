@@ -1,0 +1,25 @@
+<?php $__env->startSection('content'); ?>
+	<h1> ADD HOMEROOM GRADE </h1>
+
+	<?php echo Form::open(array('url' => 'students/create', 'method' => 'PUT')); ?>
+
+	
+	<?php foreach($students as $stud): ?>
+		<ul>
+			<li>
+				<?php echo $stud->LName. " , " .$stud->FName; ?>
+
+				
+				<?php echo Form::text($stud->id, $stud->Homeroom_Grade); ?>
+
+			</li>	
+		</ul>
+	<?php endforeach; ?>
+
+	<p> <?php echo Form::submit('Save'); ?> </p>
+
+	<?php echo Form::close(); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

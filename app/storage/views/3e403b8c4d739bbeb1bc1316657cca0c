@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> <?php echo $title; ?> </title>
+	</head>
+
+	<body>
+		<!-- Printing a message if the edit is succesfull  -->
+		<?php if(Session::has('message')): ?>
+			<div class="alert alert-success">
+				<?php echo Session::get('message'); ?>
+
+			</div>
+		<?php else: ?>
+			<div class="alert alert-error">
+			    <?php foreach($errors->all() as $error): ?>
+					<?php echo $error; ?><br>        
+			    <?php endforeach; ?>
+			</div>
+		<?php endif; ?>
+
+		<?php echo $__env->yieldContent('content'); ?>
+	</body>
+
+</html>
